@@ -3,6 +3,16 @@
   margin: 0px auto;
 }
 
+.App header {
+  width: 100%;
+  background: #ddd;
+  color: #000;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  padding: .5rem;
+  text-align: center;
+}
+
 h1 {
   font-size: 1.5rem;
   margin: 1rem 0 1rem .5rem;
@@ -27,5 +37,9 @@ h1 {
 @media screen and (max-width: 480px) {
   .App {
     width: 100%;
+  }
+
+  .App header {
+    margin: 0 0 1rem;
   }
 }

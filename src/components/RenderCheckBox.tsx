@@ -9,7 +9,7 @@ interface Prefecture {
 
 const RenderCheckBox = () => {
     const [box, updateBox] = useState([{ prefName: "都道府県", prefCode: 0 }]);
-    const [chart, updateChart] = useState([]);
+    const [chart, updateChart] = useState<any[]>([]);
     const fetchData = async () => {
         let prefecturesData = sessionStorage.getItem("prefecturesData");
         if (!prefecturesData) {
@@ -27,7 +27,7 @@ const RenderCheckBox = () => {
 
     const onPrefClick = (prefCode:number, prefName:string) => {
         const head = chart.findIndex((u:Prefecture) => u.prefCode === prefCode);
-        const newChart = [...chart];
+        const newChart:any[] = [...chart];
         if (head > -1) {
             newChart.splice(head, 1);
         } else {
