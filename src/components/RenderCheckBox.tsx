@@ -11,18 +11,27 @@ const RenderCheckBox = () => {
     const [box, updateBox] = useState([{ prefName: "都道府県", prefCode: 0 }]);
     const [chart, updateChart] = useState([]);
     const fetchData = async () => {
-        const results: {} = await getPrefectures();
-        const prefectures: Prefecture[] = results.result;
-        updateBox(prefectures);
+        let prefecturesData = sessionStorage.getItem("prefecturesData");
+        if (!prefecturesData) {
+            const results: any = await getPrefectures();
+            const prefectures: Prefecture[] = results.result;
+            updateBox(prefectures);
+            sessionStorage.setItem(
+                "prefecturesData",
+                JSON.stringify(prefectures)
+            );
+        } else {
+            updateBox(JSON.parse(prefecturesData));
+        }
     };
 
-    const onPrefClick = (prefCode) => {
-        const head = chart.indexOf(prefCode);
+    const onPrefClick = (prefCode:number, prefName:string) => {
+        const head = chart.findIndex((u:Prefecture) => u.prefCode === prefCode);
         const newChart = [...chart];
         if (head > -1) {
             newChart.splice(head, 1);
         } else {
-            newChart.push(prefCode);
+            newChart.push({ prefCode: prefCode, prefName: prefName });
         }
         updateChart(newChart);
     };
@@ -42,7 +51,9 @@ const RenderCheckBox = () => {
                                 type="checkbox"
                                 value={pref.prefCode}
                                 id={prefId}
-                                onClick={() => onPrefClick(pref.prefCode)}
+                                onClick={() =>
+                                    onPrefClick(pref.prefCode, pref.prefName)
+                                }
                             />
                             <label htmlFor={prefId}>{pref.prefName}</label>
                         </div>
@@ -50,9 +61,7 @@ const RenderCheckBox = () => {
                 })}
             </div>
             <div className="chart-container">
-                {chart.map((code) => {
-                    return <ChartContainer prefCode={code} key={code}></ChartContainer>;
-                })}
+                <ChartContainer chart={chart}></ChartContainer>;
             </div>
         </div>
     );

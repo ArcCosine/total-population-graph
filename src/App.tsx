@@ -7,6 +7,7 @@ function App() {
 
     return (
         <div className="App">
+            <h1>都道府県</h1>
             <RenderCheckBox></RenderCheckBox>
         </div>
     );
