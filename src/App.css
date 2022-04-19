@@ -1,0 +1,13 @@
+.App {
+  width: 960px;
+  margin: 0px auto;
+}
+.pref-container {
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+}
+
+.pref-grid {
+  margin: 0px;
+  padding: 0 .5em;
+}
