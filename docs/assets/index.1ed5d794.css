@@ -1,1 +1,48 @@
-.App{width:960px;margin:0 auto}.App header{width:100%;background:#ddd;color:#000;font-size:1.5rem;margin:1rem 0;padding:.5rem;text-align:center}h1{font-size:1.5rem;margin:1rem 0 1rem .5rem}.pref-container{display:grid;grid-template-columns:30% 30% 30%}.pref-grid{margin:0;padding:0 .5em;font-size:1rem}.chart-wrapper{width:100%;height:300px}@media screen and (max-width: 480px){.App{width:100%}.App header{margin:0 0 1rem}}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}code{font-family:source-code-pro,Menlo,Monaco,Consolas,Courier New,monospace}
+.App {
+  width: 960px;
+  margin: 0 auto;
+}
+.App header {
+  width: 100%;
+  background: #ddd;
+  color: #000;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  text-align: center;
+}
+h1 {
+  font-size: 1.5rem;
+  margin: 1rem 0 1rem 0.5rem;
+}
+.pref-container {
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+}
+.pref-grid {
+  margin: 0;
+  padding: 0 0.5em;
+  font-size: 1rem;
+}
+.chart-wrapper {
+  width: 100%;
+  height: 300px;
+}
+@media screen and (max-width: 480px) {
+  .App {
+    width: 100%;
+  }
+  .App header {
+    margin: 0 0 1rem;
+  }
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
+}
