@@ -22,10 +22,10 @@ API 部分に関しては、unit test を書いている。
 
 # 今後の対応
 
-- API キーがベタ書き ← とりあえず、対応はしない。色々面倒なので。
-- 現在、sessionStorage 管理を各コンポーネントに内包しているが、これを API.ts で全て賄えるようにする
-- test コードの時だけ node-fetch を使うような unit test を書く
-- レンダリング系の unit test も書く
+-   API キーがベタ書き ← とりあえず、対応はしない。色々面倒なので。
+-   現在、sessionStorage 管理を各コンポーネントに内包しているが、これを API.ts で全て賄えるようにする
+-   test コードの時だけ node-fetch を使うような unit test を書く
+-   レンダリング系の unit test も書く
 
 # 編集後記
 
