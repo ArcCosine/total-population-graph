@@ -6,9 +6,16 @@
 
 # 開発方法
 
+一番最初は
+
+    yarn install
+
+を実行する事。
+その後、
+
     yarn dev
 
-localhost:3000 にアクセスして、デバッグ可能
+で、localhost:3000 にアクセスして、デバッグ可能
 
     yarn build
 
@@ -24,6 +31,8 @@ API 部分に関しては、unit test を書いている。
 
 -   fetch対応のunit testを書く
 -   レンダリング系の unit test が動くようにする
+- 東京都を追加した時、グラフが上手く描画されないので、そこを直す.
+
 
 # 編集後記
 
