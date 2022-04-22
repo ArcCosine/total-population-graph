@@ -43,7 +43,7 @@ const ChartContainer = ({ chart }: any) => {
                         workMap[year] = {};
                         workMap[year]["name"] = year;
                     }
-                    workMap[year][prefKey] = "" + tp.value;
+                    workMap[year][prefKey] = +tp.value;
                 });
                 return Promise.resolve();
             })
@@ -53,6 +53,7 @@ const ChartContainer = ({ chart }: any) => {
         for (const workKey in workMap) {
             data.push(workMap[workKey]);
         }
+        console.log(data);
         updateChartObj(
             <div className="chart-wrapper">
                 <ResponsiveContainer>
