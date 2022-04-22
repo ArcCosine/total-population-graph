@@ -15,20 +15,20 @@ interface Prefecture {
     prefName: string;
 }
 
-interface TpMap {
-    [key: string]: any;
-}
-
 interface totalPerson {
     year: number;
     value: number;
+}
+
+interface MapObject {
+    [key: string]: any;
 }
 
 const ChartContainer = ({ chart }: any) => {
     const [chartObj, updateChartObj] = useState<any>("");
     const fetchData = async () => {
         const lines: string[] = [];
-        const workMap: TpMap = {};
+        const workMap: MapObject = {};
 
         await Promise.all(
             chart.map(async (pref: Prefecture) => {
@@ -38,7 +38,7 @@ const ChartContainer = ({ chart }: any) => {
                 const totalPersons: totalPerson[] = results.result.data[0].data;
 
                 totalPersons.map((tp: totalPerson) => {
-                    const year: string = "" + tp.year;
+                    const year: string = tp.year + "年";
                     if (typeof workMap[year] === "undefined") {
                         workMap[year] = {};
                         workMap[year]["name"] = year;
@@ -53,7 +53,6 @@ const ChartContainer = ({ chart }: any) => {
         for (const workKey in workMap) {
             data.push(workMap[workKey]);
         }
-        console.log(data);
         updateChartObj(
             <div className="chart-wrapper">
                 <ResponsiveContainer>

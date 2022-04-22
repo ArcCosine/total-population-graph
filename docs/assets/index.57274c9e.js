@@ -35106,7 +35106,7 @@ const kW = ({ chart: e }) => {
                             i.push(l),
                             (await pk(u.prefCode)).result.data[0].data.map(
                                 (f) => {
-                                    const h = "" + f.year;
+                                    const h = f.year + "\u5E74";
                                     typeof a[h] == "undefined" &&
                                         ((a[h] = {}), (a[h].name = h)),
                                         (a[h][l] = +f.value);
@@ -35118,59 +35118,58 @@ const kW = ({ chart: e }) => {
                 );
                 const o = [];
                 for (const u in a) o.push(a[u]);
-                console.log(o),
-                    r(
-                        F("div", {
-                            className: "chart-wrapper",
-                            children: F(g4, {
-                                children: Ze(AW, {
-                                    width: 600,
-                                    height: 300,
-                                    data: o,
-                                    margin: {
-                                        top: 80,
-                                        right: 80,
-                                        bottom: 20,
-                                        left: 20,
-                                    },
-                                    children: [
-                                        i.map((u, l) => {
-                                            const c = `hsl(${l * 30},80%,60%)`;
-                                            return F(
-                                                Ho,
-                                                {
-                                                    type: "monotone",
-                                                    dataKey: u,
-                                                    stroke: c,
-                                                },
-                                                l
-                                            );
-                                        }),
-                                        F(Iv, {
-                                            stroke: "#ccc",
-                                            strokeDasharray: "5 5",
-                                        }),
-                                        F(gc, {
-                                            dataKey: "name",
-                                            label: {
-                                                value: "\u5E74\u5EA6",
-                                                position: "right",
-                                                offset: 30,
+                r(
+                    F("div", {
+                        className: "chart-wrapper",
+                        children: F(g4, {
+                            children: Ze(AW, {
+                                width: 600,
+                                height: 300,
+                                data: o,
+                                margin: {
+                                    top: 80,
+                                    right: 80,
+                                    bottom: 20,
+                                    left: 20,
+                                },
+                                children: [
+                                    i.map((u, l) => {
+                                        const c = `hsl(${l * 30},80%,60%)`;
+                                        return F(
+                                            Ho,
+                                            {
+                                                type: "monotone",
+                                                dataKey: u,
+                                                stroke: c,
                                             },
-                                        }),
-                                        F(mc, {
-                                            label: {
-                                                value: "\u4EBA\u53E3\u6570",
-                                                position: "top",
-                                                offset: 10,
-                                            },
-                                        }),
-                                        F(Vi, {}),
-                                    ],
-                                }),
+                                            l
+                                        );
+                                    }),
+                                    F(Iv, {
+                                        stroke: "#ccc",
+                                        strokeDasharray: "5 5",
+                                    }),
+                                    F(gc, {
+                                        dataKey: "name",
+                                        label: {
+                                            value: "\u5E74\u5EA6",
+                                            position: "right",
+                                            offset: 30,
+                                        },
+                                    }),
+                                    F(mc, {
+                                        label: {
+                                            value: "\u4EBA\u53E3\u6570",
+                                            position: "top",
+                                            offset: 10,
+                                        },
+                                    }),
+                                    F(Vi, {}),
+                                ],
                             }),
-                        })
-                    );
+                        }),
+                    })
+                );
             };
         return (
             q.exports.useEffect(() => {
