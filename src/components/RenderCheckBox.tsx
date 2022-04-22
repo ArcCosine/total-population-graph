@@ -11,18 +11,9 @@ const RenderCheckBox = () => {
     const [box, updateBox] = useState([{ prefName: "都道府県", prefCode: 0 }]);
     const [chart, updateChart] = useState<any[]>([]);
     const fetchData = async () => {
-        const prefecturesData = sessionStorage.getItem("prefecturesData");
-        if (!prefecturesData) {
-            const results: any = await getPrefectures();
-            const prefectures: Prefecture[] = results.result;
-            updateBox(prefectures);
-            sessionStorage.setItem(
-                "prefecturesData",
-                JSON.stringify(prefectures)
-            );
-        } else {
-            updateBox(JSON.parse(prefecturesData));
-        }
+        const results: any = await getPrefectures();
+        const prefectures: Prefecture[] = results.result;
+        updateBox(prefectures);
     };
 
     const onPrefClick = (prefCode: number, prefName: string) => {

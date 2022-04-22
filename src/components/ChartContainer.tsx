@@ -19,32 +19,25 @@ interface TpMap {
     [key: string]: any;
 }
 
+interface totalPerson {
+    year: number;
+    value: number;
+}
+
 const ChartContainer = ({ chart }: any) => {
     const [chartObj, updateChartObj] = useState<any>("");
     const fetchData = async () => {
         const lines: string[] = [];
         const workMap: TpMap = {};
-        let totalPersonsData: any = sessionStorage.getItem("totalPersonsData");
-        if (!totalPersonsData) {
-            totalPersonsData = {};
-        } else {
-            totalPersonsData = JSON.parse(totalPersonsData);
-        }
 
         await Promise.all(
             chart.map(async (pref: Prefecture) => {
                 const prefKey = pref.prefName;
                 lines.push(prefKey);
-                let totalPersons;
-                if (typeof totalPersonsData[prefKey] === "undefined") {
-                    const results: any = await getPerYear(pref.prefCode);
-                    totalPersons = results.result.data[0].data;
-                    totalPersonsData[prefKey] = totalPersons;
-                } else {
-                    totalPersons = totalPersonsData[prefKey];
-                }
+                const results: any = await getPerYear(pref.prefCode);
+                const totalPersons: totalPerson[] = results.result.data[0].data;
 
-                totalPersons.map((tp: { year: number; value: number }) => {
+                totalPersons.map((tp: totalPerson) => {
                     const year: string = "" + tp.year;
                     if (typeof workMap[year] === "undefined") {
                         workMap[year] = {};
@@ -54,11 +47,6 @@ const ChartContainer = ({ chart }: any) => {
                 });
                 return Promise.resolve();
             })
-        );
-
-        sessionStorage.setItem(
-            "totalPersonsData",
-            JSON.stringify(totalPersonsData)
         );
 
         const data = [];
