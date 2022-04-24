@@ -40,15 +40,20 @@ const RenderCheckBox = () => {
                     const prefId = `pref_${pref.prefCode}`;
                     return (
                         <div className="pref-grid" key={index}>
-                            <input
-                                type="checkbox"
-                                value={pref.prefCode}
-                                id={prefId}
-                                onClick={() =>
-                                    onPrefClick(pref.prefCode, pref.prefName)
-                                }
-                            />
-                            <label htmlFor={prefId}>{pref.prefName}</label>
+                            <label htmlFor={prefId}>
+                                <input
+                                    type="checkbox"
+                                    value={pref.prefCode}
+                                    id={prefId}
+                                    onClick={() =>
+                                        onPrefClick(
+                                            pref.prefCode,
+                                            pref.prefName
+                                        )
+                                    }
+                                />
+                                {pref.prefName}
+                            </label>
                         </div>
                     );
                 })}

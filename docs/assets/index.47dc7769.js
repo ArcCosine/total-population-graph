@@ -35204,23 +35204,23 @@ const kW = ({ chart: e }) => {
                         className: "pref-container",
                         children: e.map((o, u) => {
                             const l = `pref_${o.prefCode}`;
-                            return Ze(
+                            return F(
                                 "div",
                                 {
                                     className: "pref-grid",
-                                    children: [
-                                        F("input", {
-                                            type: "checkbox",
-                                            value: o.prefCode,
-                                            id: l,
-                                            onClick: () =>
-                                                a(o.prefCode, o.prefName),
-                                        }),
-                                        F("label", {
-                                            htmlFor: l,
-                                            children: o.prefName,
-                                        }),
-                                    ],
+                                    children: Ze("label", {
+                                        htmlFor: l,
+                                        children: [
+                                            F("input", {
+                                                type: "checkbox",
+                                                value: o.prefCode,
+                                                id: l,
+                                                onClick: () =>
+                                                    a(o.prefCode, o.prefName),
+                                            }),
+                                            o.prefName,
+                                        ],
+                                    }),
                                 },
                                 u
                             );
